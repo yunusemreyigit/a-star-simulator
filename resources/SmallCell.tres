@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SimSettings" load_steps=3 format=3 uid="uid://drad8nujchh2v"]
+
+[ext_resource type="Resource" uid="uid://b6md35n8javp" path="res://resources/colors2.tres" id="1_fmg58"]
+[ext_resource type="Script" path="res://codes/sim_settings.gd" id="2_1gc7g"]
+
+[resource]
+script = ExtResource("2_1gc7g")
+colorSettings = ExtResource("1_fmg58")
+cellSize = 10
+isTextVisible = false
+HEIGHT = 100
+WIDTH = 100
+time = 0.05

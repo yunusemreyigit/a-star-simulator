@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ColorSettings" load_steps=2 format=3 uid="uid://b6md35n8javp"]
+
+[ext_resource type="Script" path="res://codes/color_settings.gd" id="1_ejyuw"]
+
+[resource]
+script = ExtResource("1_ejyuw")
+pathColor = Color(0.301961, 0.941176, 0.380392, 1)
+visitedColor = Color(0.0758513, 0.320122, 0.786458, 1)
+neighbourColor = Color(0, 0.756863, 0.92549, 1)
+wallColor = Color(0.239216, 0.239216, 0.239216, 1)
+startAndFinishColor = Color(0.960784, 0.101961, 0.227451, 1)

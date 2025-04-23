@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://3d8dm8m6iqo8"]
+
+[ext_resource type="Script" path="res://codes/cell.gd" id="1_g1rlc"]
+[ext_resource type="Shader" path="res://shaders/cell.gdshader" id="2_fgjl4"]
+[ext_resource type="Texture2D" uid="uid://c38eddpfarf3j" path="res://art/cellTexture.png" id="3_uwjo5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0f03"]
+resource_local_to_scene = true
+shader = ExtResource("2_fgjl4")
+shader_parameter/color = Color(0.956863, 0.929412, 0.764706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nea5u"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjtg1"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+
+[node name="Cell" type="Node2D" node_paths=PackedStringArray("GText", "HText", "FText", "textureRect")]
+script = ExtResource("1_g1rlc")
+GText = NodePath("TextureRect/Text/G")
+HText = NodePath("TextureRect/Text/H")
+FText = NodePath("TextureRect/Text/F")
+textureRect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 2
+material = SubResource("ShaderMaterial_b0f03")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(24, 24)
+texture = ExtResource("3_uwjo5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="Control" parent="TextureRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="G" type="Label" parent="TextureRect/Text"]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 8.444
+offset_right = 25.0
+offset_bottom = 22.444
+label_settings = SubResource("LabelSettings_nea5u")
+horizontal_alignment = 1
+
+[node name="H" type="Label" parent="TextureRect/Text"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = 8.44444
+offset_right = -5.0
+offset_bottom = 22.4444
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_tjtg1")
+horizontal_alignment = 1
+
+[node name="F" type="Label" parent="TextureRect/Text"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -20.6667
+offset_right = 11.0
+offset_bottom = -6.66667
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_tjtg1")
+horizontal_alignment = 1
+vertical_alignment = 2
