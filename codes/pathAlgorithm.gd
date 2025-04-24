@@ -13,6 +13,7 @@ var pathColor: Color
 var visitedColor: Color
 var neighbourColor: Color
 var isTextVisible: bool
+var isExecutionCompleted: bool = true
 
 func _init(_start: Cell, _goal:Cell, extraClosed:Array, timer: Timer, settings: SimSettings) -> void:
 	start = _start
@@ -34,6 +35,7 @@ func execute():
 	algorithm()
 	
 func algorithm():
+	setIsExecutionCompleted(false)
 	while !_isFound:
 		var currentTile = getTileWhichFisLeastFromOpenList()
 		_closedList.append(currentTile)
@@ -71,6 +73,7 @@ func algorithm():
 			_openList.append(neighbour)
 		_openList.erase(currentTile)
 	drawPath()
+	setIsExecutionCompleted(true)
 
 func drawPath():
 	var tile = goal
@@ -110,3 +113,9 @@ func extractTilesNextToWall(centralCell: Cell, wall: Cell):
 	if direction == Vector2i.DOWN:
 		centralCell.extractNeighbour(Vector2(1, 1))
 		centralCell.extractNeighbour(Vector2(-1, 1))
+
+func setIsExecutionCompleted(value: bool):
+	isExecutionCompleted = value
+
+func getIsExecutionCompleted() -> bool:
+	return isExecutionCompleted

@@ -13,6 +13,7 @@ func init(height: int, width: int, _cellScene: PackedScene, _cellSize: float) ->
 	WIDTH = width
 	cellScene = _cellScene
 	cellSize = _cellSize
+	cellArray.clear()
 
 func createMap() -> void:
 	_fillCellArray()

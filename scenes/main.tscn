@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://gl2trhxkf2w3"]
+[gd_scene load_steps=6 format=3 uid="uid://gl2trhxkf2w3"]
 
 [ext_resource type="Script" path="res://codes/gameManager.gd" id="1_uou6y"]
 [ext_resource type="Resource" uid="uid://bmkosa46fmx7n" path="res://resources/SimSettings.tres" id="2_frnpc"]
 [ext_resource type="Script" path="res://codes/map.gd" id="3_hrqsg"]
+[ext_resource type="PackedScene" uid="uid://egvwrqm0nkrv" path="res://scenes/ui.tscn" id="4_fn2pj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdwor"]
 outline_size = 10
 outline_color = Color(0.0208333, 0.0208333, 0.0208333, 1)
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node"]
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("timer")]
 script = ExtResource("1_uou6y")
@@ -39,3 +40,6 @@ R - Reset
 Space - Execute"
 label_settings = SubResource("LabelSettings_qdwor")
 autowrap_mode = 2
+
+[node name="UI" parent="." node_paths=PackedStringArray("gameManager") instance=ExtResource("4_fn2pj")]
+gameManager = NodePath("../GameManager")
