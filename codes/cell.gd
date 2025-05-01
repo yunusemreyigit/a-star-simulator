@@ -34,7 +34,6 @@ func setTextureSize(_size: float):
 func setColor(color: Color):
 	textureRect.get_material().set_shader_parameter("color", color)
 
-#TODO: This can be false because of mapoffset
 func getMapPosition() -> Vector2i:
 	return position / getTextureSize()
 

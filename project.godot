@@ -30,6 +30,10 @@ mouse_cursor/custom_image="res://art/pointer_d.png"
 mouse_cursor/custom_image_hotspot=Vector2(5, 5)
 mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
+[dotnet]
+
+project/assembly_name="A-Star-sim"
+
 [input]
 
 click={

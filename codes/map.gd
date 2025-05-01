@@ -17,7 +17,7 @@ func init(height: int, width: int, _cellScene: PackedScene, _cellSize: float) ->
 
 func createMap() -> void:
 	_fillCellArray()
-	_addCellToTheScene()
+	_addCellsToTheScene()
 	fillAllNeighbour()
 
 func getCellSize() -> float:
@@ -37,7 +37,10 @@ func _createCellObject(pos: Vector2i):
 	cellScript.setMaxFandH()
 	return cell
 
-func _addCellToTheScene():
+func _addCellsToTheScene():
+	if cellArray.is_empty():
+		printerr("Cell array is empty. Can not added to the scene.")
+		return
 	var parentOfCells = Node2D.new()
 	parentOfCells.name = "ParentOfCells"
 	var screenSize : Vector2i = DisplayServer.window_get_size()
@@ -50,9 +53,9 @@ func _addCellToTheScene():
 
 func fillAllNeighbour():
 	for cell in cellArray:
-		fillNeighbour(cell as Cell)
+		fillNeighbourTo(cell as Cell)
 
-func fillNeighbour(cell: Cell):
+func fillNeighbourTo(cell: Cell):
 	var neigbourArray: Array[Cell]
 	var degree = 0
 	var dir = Vector2.RIGHT
@@ -65,8 +68,8 @@ func fillNeighbour(cell: Cell):
 			neigbourArray.append(neighbour as Cell)
 		degree += 45
 	cell.setNeighbours(neigbourArray)
-
-func selectCell(pos: Vector2i, color: Color)->Cell:
+                                                                                                   
+func selectCell(pos: Vector2i, color: Color) -> Cell:
 	var cell = _getCell(pos)
 	var cellScript: Cell = cell as Cell
 	cellScript.setColor(color)
