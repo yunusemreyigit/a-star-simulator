@@ -22,9 +22,10 @@ resetButton = NodePath("BGPanel/MarginContainer/VBoxContainer/reset")
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_top = -2.0
-offset_right = 250.0
-offset_bottom = -206.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 265.0
+offset_bottom = -189.0
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="BGPanel"]
@@ -43,6 +44,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BGPanel/MarginContainer"]
 layout_mode = 2
@@ -60,6 +65,7 @@ layout_mode = 2
 
 [node name="OptionButton" type="OptionButton" parent="BGPanel/MarginContainer/VBoxContainer/PresetContainer"]
 layout_mode = 2
+focus_mode = 1
 selected = 0
 allow_reselect = true
 item_count = 2
@@ -79,30 +85,35 @@ alignment = 1
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 0
+focus_mode = 0
 color = Color(0.976471, 0.380392, 0.376471, 1)
 
 [node name="path" type="ColorPickerButton" parent="BGPanel/MarginContainer/VBoxContainer/Colors"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 0
+focus_mode = 0
 color = Color(0.972549, 0.717647, 0.403922, 1)
 
 [node name="wall" type="ColorPickerButton" parent="BGPanel/MarginContainer/VBoxContainer/Colors"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 0
+focus_mode = 0
 color = Color(0.368627, 0.294118, 0.317647, 1)
 
 [node name="neighbour" type="ColorPickerButton" parent="BGPanel/MarginContainer/VBoxContainer/Colors"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 0
+focus_mode = 0
 color = Color(0.703947, 0.866862, 0.834409, 1)
 
 [node name="visited" type="ColorPickerButton" parent="BGPanel/MarginContainer/VBoxContainer/Colors"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_vertical = 0
+focus_mode = 0
 color = Color(0.300709, 0.489583, 0.454956, 1)
 
 [node name="Size" type="HBoxContainer" parent="BGPanel/MarginContainer/VBoxContainer"]
@@ -118,6 +129,7 @@ layout_mode = 2
 
 [node name="LineEdit" type="LineEdit" parent="BGPanel/MarginContainer/VBoxContainer/Size"]
 layout_mode = 2
+focus_mode = 1
 text = "48"
 alignment = 1
 max_length = 3
@@ -138,6 +150,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+focus_mode = 0
 
 [node name="Row" type="HBoxContainer" parent="BGPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -152,6 +165,7 @@ layout_mode = 2
 
 [node name="LineEdit" type="LineEdit" parent="BGPanel/MarginContainer/VBoxContainer/Row"]
 layout_mode = 2
+focus_mode = 1
 text = "10"
 alignment = 1
 max_length = 3
@@ -171,6 +185,7 @@ layout_mode = 2
 [node name="LineEdit" type="LineEdit" parent="BGPanel/MarginContainer/VBoxContainer/Column"]
 layout_mode = 2
 size_flags_horizontal = 8
+focus_mode = 1
 text = "10"
 alignment = 1
 max_length = 3
@@ -193,6 +208,7 @@ layout_mode = 2
 [node name="HSlider" type="HSlider" parent="BGPanel/MarginContainer/VBoxContainer/SimulationTime/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 min_value = 0.05
 max_value = 10.0
 value = 0.05
@@ -208,37 +224,34 @@ layout_mode = 2
 self_modulate = Color(1, 0, 0.25, 1)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 1
 text = "Execute"
 
 [node name="apply" type="Button" parent="BGPanel/MarginContainer/VBoxContainer/Buttons"]
 self_modulate = Color(0, 0.71875, 1, 1)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 1
 text = "Apply"
 
 [node name="reset" type="Button" parent="BGPanel/MarginContainer/VBoxContainer"]
 self_modulate = Color(1, 0.96875, 0, 1)
 layout_mode = 2
+focus_mode = 1
 text = "Reset"
 
 [node name="hardReset" type="Button" parent="BGPanel/MarginContainer/VBoxContainer"]
 self_modulate = Color(0.34375, 0, 1, 1)
 layout_mode = 2
+focus_mode = 1
 text = "Hard Reset"
 
-[node name="Help" type="Label" parent="BGPanel"]
+[node name="Help" type="Label" parent="BGPanel/MarginContainer/VBoxContainer"]
 z_index = 1
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -101.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 2
 text = "LMB - Select Start and End Point
 RMB - Make Wall
-Arrow Keys - Move"
+WASD - Move "
 label_settings = SubResource("LabelSettings_alxl0")
 autowrap_mode = 2
 

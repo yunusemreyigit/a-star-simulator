@@ -68,7 +68,7 @@ func fillNeighbourTo(cell: Cell):
 			neigbourArray.append(neighbour as Cell)
 		degree += 45
 	cell.setNeighbours(neigbourArray)
-                                                                                                   
+																								   
 func selectCell(pos: Vector2i, color: Color) -> Cell:
 	var cell = _getCell(pos)
 	var cellScript: Cell = cell as Cell

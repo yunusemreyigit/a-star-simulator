@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://gl2trhxkf2w3"]
+[gd_scene load_steps=5 format=3 uid="uid://gl2trhxkf2w3"]
 
 [ext_resource type="Script" path="res://codes/gameManager.gd" id="1_uou6y"]
 [ext_resource type="Resource" uid="uid://bmkosa46fmx7n" path="res://resources/SimSettings.tres" id="2_frnpc"]
 [ext_resource type="Script" path="res://codes/map.gd" id="3_hrqsg"]
 [ext_resource type="PackedScene" uid="uid://egvwrqm0nkrv" path="res://scenes/ui.tscn" id="4_fn2pj"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_qdwor"]
-outline_size = 10
-outline_color = Color(0.0208333, 0.0208333, 0.0208333, 1)
 
 [node name="main" type="Node"]
 
@@ -23,23 +19,6 @@ autostart = true
 
 [node name="Map" type="Node" parent="."]
 script = ExtResource("3_hrqsg")
-
-[node name="Help" type="Label" parent="."]
-z_index = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 356.0
-offset_right = 153.0
-offset_bottom = 483.0
-grow_vertical = 0
-text = "LMB - Select Start and End Point
-RMB - Make Wall
-R - Reset
-Space - Execute"
-label_settings = SubResource("LabelSettings_qdwor")
-autowrap_mode = 2
 
 [node name="UI" parent="." node_paths=PackedStringArray("gameManager") instance=ExtResource("4_fn2pj")]
 gameManager = NodePath("../GameManager")
